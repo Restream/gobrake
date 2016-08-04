@@ -14,8 +14,6 @@ import (
 	"time"
 )
 
-const defaultAirbrakeHost = "https://airbrake.io"
-
 const statusTooManyRequests = 429
 
 var (
@@ -64,11 +62,11 @@ type Notifier struct {
 	closed   chan struct{}
 }
 
-func NewNotifier(projectId int64, projectKey string) *Notifier {
+func NewNotifier(host string, projectId int64, projectKey string) *Notifier {
 	n := &Notifier{
 		projectId:       projectId,
 		projectKey:      projectKey,
-		createNoticeURL: getCreateNoticeURL(defaultAirbrakeHost, projectId, projectKey),
+		createNoticeURL: getCreateNoticeURL(host, projectId, projectKey),
 
 		Client: httpClient,
 
