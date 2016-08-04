@@ -13,7 +13,7 @@ import (
 	. "github.com/onsi/ginkgo"
 	. "github.com/onsi/gomega"
 
-	"github.com/Restream/gobrake.v2"
+	"github.com/Restream/gobrake"
 )
 
 func TestGobrake(t *testing.T) {
